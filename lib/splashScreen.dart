@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:travelmate/main.dart';
+import 'package:travelmate/BottomBar.dart';
+
 
 import 'DashboardScreen.dart';
 
@@ -23,10 +24,10 @@ class SplashState extends State<SplashScreen>{
   void initState() {
 
     super.initState();
-    Timer(Duration(seconds: 4), (){
+    Timer(Duration(seconds: 5), (){
 
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => DashBoard()));
+            context, MaterialPageRoute(builder: (context) => BottomBar()));
 
 
     });
@@ -45,7 +46,7 @@ class SplashState extends State<SplashScreen>{
            mainAxisAlignment: MainAxisAlignment.center,
            crossAxisAlignment: CrossAxisAlignment.center,
            children: [
-             Lottie.asset("assets/raw/splashscreen.json"),
+             Lottie.asset("assets/raw/splashscreen.json",width: 300,height: 300),
              Text("Halal Touch",style: TextStyle(fontSize: 35,color: Colors.pink),)
            ],
          ) ,

@@ -12,7 +12,11 @@ class DashBoardState extends State<DashBoard>{
   @override
   Widget build(BuildContext context) {
   return Scaffold(
-
+    body: Container(
+      decoration: BoxDecoration(
+        color: Colors.pinkAccent
+      ),
+    ),
   );
   }
 
