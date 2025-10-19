@@ -5,7 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:travelmate/main.dart';
 
+import 'DashboardScreen.dart';
+import 'onboardingview.dart';
+
 class SplashScreen extends StatefulWidget{
+  final bool onboarding;
+  SplashScreen({super.key,required this.onboarding});
+
   @override
   State<StatefulWidget> createState()=>SplashState();
 
@@ -20,7 +26,13 @@ class SplashState extends State<SplashScreen>{
 
     super.initState();
     Timer(Duration(seconds: 5), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyApp()));
+      if (widget.onboarding) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => DashBoard()));
+      } else {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Onboarding()));
+      }
 
     });
   }

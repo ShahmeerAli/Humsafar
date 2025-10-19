@@ -25,7 +25,7 @@ class OnBoardingState extends State<Onboarding>{
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextButton(onPressed: (){
-            pageController.nextPage(duration: Duration(microseconds: 600), curve: Curves.easeIn);
+            pageController.nextPage(duration: Duration(milliseconds: 600), curve: Curves.easeIn);
           }, child:
           Text("Next",style: TextStyle(fontSize: 20,color:Colors.green,),)),
           SmoothPageIndicator(controller: pageController, count: controller.items.length,effect: WormEffect(
@@ -35,31 +35,21 @@ class OnBoardingState extends State<Onboarding>{
           ),)
         ],
       ),),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [Colors.white,Colors.greenAccent])
-        ),
-        child: Column(
-             children: [
-               PageView.builder(
-                   onPageChanged:
-                       (index)=>setState(() =>isLastPage=controller.items.length-1==index),
-                   itemCount: controller.items.length,
-                   controller: pageController,
-                   itemBuilder: (context,index){
-                     return Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         Image.asset(controller.items[index].image),
-                         Text(controller.items[index].title,style: TextStyle(fontSize: 25,color: Colors.blue),),
-                         Text(controller.items[index].description,style: TextStyle(fontSize: 20,color: Colors.blueGrey),)
-                       ],
-                     );
-                   })
-             ],
-
-        ),
-      ),
+      body: PageView.builder(
+          onPageChanged:
+              (index)=>setState(() =>isLastPage=controller.items.length-1==index),
+          itemCount: controller.items.length,
+          controller: pageController,
+          itemBuilder: (context,index){
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(controller.items[index].image),
+                Text(controller.items[index].title,style: TextStyle(fontSize: 25,color: Colors.blue),),
+                Text(controller.items[index].description,style: TextStyle(fontSize: 20,color: Colors.blueGrey),)
+              ],
+            );
+          }),
     );
   }
 
@@ -75,7 +65,7 @@ Widget getStarted(BuildContext context){
       padding: const EdgeInsets.all(20.0),
       child: ElevatedButton(onPressed: () async {
         final pres=await SharedPreferences.getInstance();
-        pres.setBool("isOnboarding", true);
+        await pres.setBool("isOnboarding", true);
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>DashBoard()));
       }, style:ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent,foregroundColor: Colors.white) ,child: Text(
         "Get Started",
