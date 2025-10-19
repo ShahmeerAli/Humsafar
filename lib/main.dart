@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:travelmate/splashScreen.dart';
 
-void main() {
+void main() async{
+  final storage = await SharedPreferences.getInstance();
+  final onboarding = storage.getBool("isOnboarding") ?? false;
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
