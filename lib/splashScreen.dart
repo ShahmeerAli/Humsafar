@@ -6,11 +6,9 @@ import 'package:lottie/lottie.dart';
 import 'package:travelmate/main.dart';
 
 import 'DashboardScreen.dart';
-import 'onboardingview.dart';
+
 
 class SplashScreen extends StatefulWidget{
-  final bool onboarding;
-  SplashScreen();
 
   @override
   State<StatefulWidget> createState()=>SplashState();
