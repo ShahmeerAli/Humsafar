@@ -94,6 +94,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_card_swiper:
+    dependency: "direct main"
+    description:
+      name: flutter_card_swiper
+      sha256: "9fbe75c913c0a01f34f9f98068ad198e396695fcf8abfa433cc53652fceb5617"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.1.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -248,6 +256,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.3"
+  scrumlab_flutter_tindercard:
+    dependency: "direct main"
+    description:
+      name: scrumlab_flutter_tindercard
+      sha256: d94bb0487e6e10c3222006eec8cd63a20763e88feed2e8f9c4d3c86dd62a0dd5
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   shared_preferences:
     dependency: "direct main"
     description:

@@ -26,8 +26,9 @@ class BottomState extends State<BottomBar>{
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(selectedItemColor: Colors.pinkAccent,backgroundColor: Colors.white,
-          unselectedItemColor: Color(0xfffccbcb),
+      bottomNavigationBar: BottomNavigationBar(selectedItemColor: Colors.pink,
+          backgroundColor: Color(0xfffddcdc),
+          unselectedItemColor: Color(0xff0c0c0c),
           currentIndex: currentIndex,
           onTap: (index){
             setState(() {
@@ -35,11 +36,12 @@ class BottomState extends State<BottomBar>{
 
             });
                        },
+          type: BottomNavigationBarType.fixed,
           items: [
-            BottomNavigationBarItem(icon: Image.asset("assets/images/discover.png",color: Colors.black,),label:"Discover"),
-            BottomNavigationBarItem(icon: Image.asset("assets/images/match.png"),label: "Match"),
-            BottomNavigationBarItem(icon: Image.asset("assets/images/chat.png"),label: "Chat"),
-            BottomNavigationBarItem(icon: Image.asset("assets/images/user.png"),label: "Profile")
+            BottomNavigationBarItem(icon: Image.asset("assets/images/discover.png",color: Colors.pink,),label:"Discover"),
+            BottomNavigationBarItem(icon: Image.asset("assets/images/match.png",color: Colors.pink,),label: "Match"),
+            BottomNavigationBarItem(icon: Image.asset("assets/images/chat.png",color: Colors.pink,),label: "Chat"),
+            BottomNavigationBarItem(icon: Image.asset("assets/images/user.png",color: Colors.pink,),label: "Profile")
           ]),
     );
   }
