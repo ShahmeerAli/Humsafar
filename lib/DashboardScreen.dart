@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:travelmate/DetailsScreen.dart';
 
 
 class DashBoard extends StatefulWidget{
@@ -69,48 +70,53 @@ class DashBoardState extends State<DashBoard>{
                 },
                 cardsCount: profiles.length,
                 cardBuilder: (context, index, percentThresholdX, percentThresholdY){
-                  return Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-                    shadowColor: Colors.pink.shade300,
-                    child:Stack(
-                      children: [
-                        Image.asset("${profiles[index]}",fit: BoxFit.fill,),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Positioned(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    //for name
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text("Name",style: TextStyle(fontSize: 25),),
-                                    ),
-                                    //for age
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text("Age",style: TextStyle(fontSize: 25),),
-                                    )
-                                  ],
+                  return InkWell(
+                    onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsScreen()));
+                    },
+                    child: Card(
+                      elevation: 10,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                      shadowColor: Colors.pink.shade300,
+                      child:Stack(
+                        children: [
+                          Image.asset("${profiles[index]}",fit: BoxFit.fill,),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Positioned(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      //for name
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text("Name",style: TextStyle(fontSize: 25),),
+                                      ),
+                                      //for age
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text("Age",style: TextStyle(fontSize: 25),),
+                                      )
+                                    ],
 
-                                ),
-                                //text for the location
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text("Location",style: TextStyle(fontSize: 25),),
-                                )
-                              ],
+                                  ),
+                                  //text for the location
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text("Location",style: TextStyle(fontSize: 25),),
+                                  )
+                                ],
+                              ),
                             ),
+
                           ),
 
-                        ),
-
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -145,4 +151,6 @@ class DashBoardState extends State<DashBoard>{
   );
   }
 
+
 }
+
