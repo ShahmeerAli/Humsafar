@@ -3,16 +3,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:travelmate/splashScreen.dart';
 
 void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  final storage = await SharedPreferences.getInstance();
-  final onboarding = storage.getBool("isOnboarding") ?? false;
-  runApp(MyApp(onboarding: onboarding,));
+  runApp(MyApp());
 }
 
 
 class MyApp extends StatelessWidget {
-  final bool onboarding;
-  const MyApp({super.key,required this.onboarding});
+
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreen(onboarding:onboarding),
+      home: SplashScreen(),
     );
   }
 }

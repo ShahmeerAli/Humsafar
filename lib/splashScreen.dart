@@ -10,7 +10,7 @@ import 'onboardingview.dart';
 
 class SplashScreen extends StatefulWidget{
   final bool onboarding;
-  SplashScreen({super.key,required this.onboarding});
+  SplashScreen();
 
   @override
   State<StatefulWidget> createState()=>SplashState();
@@ -25,14 +25,11 @@ class SplashState extends State<SplashScreen>{
   void initState() {
 
     super.initState();
-    Timer(Duration(seconds: 5), (){
-      if (widget.onboarding) {
+    Timer(Duration(seconds: 4), (){
+
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => DashBoard()));
-      } else {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Onboarding()));
-      }
+
 
     });
   }
@@ -40,8 +37,20 @@ class SplashState extends State<SplashScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-         child:Lottie.asset("assets/raw/splash.json") ,
+      body: Container(
+        width: double.infinity,
+         height: double.infinity,
+         decoration: BoxDecoration(
+           color: Color(0xfff5c0c0)
+         ),
+         child:Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+           crossAxisAlignment: CrossAxisAlignment.center,
+           children: [
+             Lottie.asset("assets/raw/splashscreen.json"),
+             Text("Halal Touch",style: TextStyle(fontSize: 35,color: Colors.pink),)
+           ],
+         ) ,
       ),
     );
   }
